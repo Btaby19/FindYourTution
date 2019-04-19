@@ -1,4 +1,5 @@
 <?php include '../Template/header.php' ?>
+
 <?php if (isset($_SESSION["Active"])) {
 } else {
     header("Location: login.php?message=Please login first");
@@ -43,7 +44,31 @@
                         <!-- /col-md-4 -->
                         <div class="col-md-4 centered">
                             <div class="profile-pic">
-                                <p><img src="img/ui-sam.jpg" class="img-circle"></p>
+                                <p>Click the button to get your coordinates.</p>
+
+                                <button onclick="getLocation()">Try It</button>
+
+                                <p id="demo"></p>
+
+                                <script>
+                                    var x = document.getElementById("demo");
+
+                                    function getLocation() {
+                                        if (navigator.geolocation) {
+                                            navigator.geolocation.getCurrentPosition(showPosition);
+                                        } else {
+                                            x.innerHTML = "Geolocation is not supported by this browser.";
+                                        }
+                                    }
+
+                                    function showPosition(position) {
+                                        x.innerHTML = "Latitude: " + position.coords.latitude +
+                                            "<br>Longitude: " + position.coords.longitude;
+                                        $('input[type=text].lat').val(position.coords.latitude);
+                                        $('input[type=text].lng').val(position.coords.longitude);
+                                        document.getElementById("lat").value = position.coords.latitude;
+                                    }
+                                </script>
 
                             </div>
                         </div>
@@ -62,7 +87,7 @@
                                 <li>
                                     <a data-toggle="tab" href="#contact" class="contact-map">Add Requirements</a>
                                 </li>
-                                <li>
+                                <li >
                                     <a data-toggle="tab" href="#edit">Edit Profile</a>
                                 </li>
                             </ul>
@@ -338,7 +363,7 @@
                                             <div class="form-group">
                                                 <label class="col-lg-2 control-label"> New Password</label>
                                                 <div class="col-lg-6">
-                                                    <input type="password" placeholder=" " name="student_password"
+                                                    <input type="password" placeholder=" " name="student_password" value='<?php echo $row["student_password"] ?>'
                                                            class="form-control">
                                                 </div>
                                             </div>
@@ -350,6 +375,26 @@
                                                            class="form-control">
                                                 </div>
                                             </div>
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label">lattitute</label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" placeholder=" " name="lat"
+                                                           value='<?php echo $row["lat"] ?>'
+                                                           class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label">longitute</label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" placeholder=" " name="lng"
+                                                           value='<?php echo $row["lng"] ?>'
+                                                           class="form-control">
+                                                </div>
+                                            </div>
+
+
+
+
                                             <div class="form-group">
                                                 <div class="col-lg-offset-2 col-lg-10">
                                                     <button class="btn btn-theme" type="submit">Save</button>
@@ -419,7 +464,31 @@
                         <!-- /col-md-4 -->
                         <div class="col-md-4 centered">
                             <div class="profile-pic">
-                                <p><img src="img/ui-sam.jpg" class="img-circle"></p>
+                                <p>Click the button to get your coordinates.</p>
+
+                                <button onclick="getLocation()">Try It</button>
+
+                                <p id="demo"></p>
+
+                                <script>
+                                    var x = document.getElementById("demo");
+
+                                    function getLocation() {
+                                        if (navigator.geolocation) {
+                                            navigator.geolocation.getCurrentPosition(showPosition);
+                                        } else {
+                                            x.innerHTML = "Geolocation is not supported by this browser.";
+                                        }
+                                    }
+
+                                    function showPosition(position) {
+                                        x.innerHTML = "Latitude: " + position.coords.latitude +
+                                            "<br>Longitude: " + position.coords.longitude;
+                                        $('input[type=text].lat').val(position.coords.latitude);
+                                        $('input[type=text].lng').val(position.coords.longitude);
+                                        document.getElementById("lat").value = position.coords.latitude;
+                                    }
+                                </script>
 
                             </div>
                         </div>
@@ -517,7 +586,7 @@
                                             <div class="form-group">
                                                 <label class="col-lg-2 control-label"> New Password</label>
                                                 <div class="col-lg-6">
-                                                    <input type="password" placeholder="" name="tutor_password"
+                                                    <input type="password" placeholder="" name="tutor_password" value='<?php echo $row["tutor_password"] ?>'
                                                            class="form-control">
                                                 </div>
                                             </div>
@@ -526,6 +595,22 @@
                                                 <div class="col-lg-6">
                                                     <input type="text" placeholder=" " name="phone"
                                                            value='<?php echo $row["phone"] ?>'
+                                                           class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label">lattitute</label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" placeholder=" " name="lat"
+                                                           value='<?php echo $row["lat"] ?>'
+                                                           class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label">longitute</label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" placeholder=" " name="lng"
+                                                           value='<?php echo $row["lng"] ?>'
                                                            class="form-control">
                                                 </div>
                                             </div>
