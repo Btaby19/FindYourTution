@@ -417,9 +417,24 @@
                     <!-- /panel-body -->
                 </div>
                 <!-- /col-lg-12 -->
-            </div>
-
-            <!-- /row -->
+                    <div id="map" style=" height:700px">
+                    <script>
+                           
+                        function initMap() {
+  // The location of loc
+                            var loc = {lat:<?php echo $row["lat"] ?>, lng: <?php echo $row["lng"] ?>};
+  // The map, centered at loc
+                            var map = new google.maps.Map(
+                            document.getElementById('map'), {zoom: 15, center: loc});
+  // The marker, positioned at loc
+                            var marker = new google.maps.Marker({position: loc, map: map});
+}
+                    </script>
+    
+                    <script async defer
+                                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYm_09UUKmogB7PCITsZCD7NxO45a6ylg&callback=initMap">
+                    </script>
+                <!-- /col-lg-12 -->
             </div>
             <?php
             $conn->close();
@@ -634,7 +649,23 @@
                         <!-- /tab-content -->
                     </div>
                     <!-- /panel-body -->
-                </div>
+                 <div id="map" style=" height:700px">
+                    <script>
+                           
+                        function initMap() {
+  // The location of loc
+                            var loc = {lat:<?php echo $row["lat"] ?>, lng: <?php echo $row["lng"] ?>};
+  // The map, centered at loc
+                            var map = new google.maps.Map(
+                            document.getElementById('map'), {zoom: 15, center: loc});
+  // The marker, positioned at loc
+                            var marker = new google.maps.Marker({position: loc, map: map});
+}
+                    </script>
+    
+                    <script async defer
+                                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYm_09UUKmogB7PCITsZCD7NxO45a6ylg&callback=initMap">
+                    </script>
                 <!-- /col-lg-12 -->
             </div>
 
